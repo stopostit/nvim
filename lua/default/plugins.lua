@@ -49,7 +49,7 @@ return packer.startup(function(use)
 	use "NLKNguyen/papercolor-theme"
 	--
 	-- Workflow
-	use "tpope/vim-surround" 
+	use "tpope/vim-surround"
 
 	-- cmp plugins
 	use "hrsh7th/nvim-cmp"
@@ -70,8 +70,9 @@ return packer.startup(function(use)
 	use "williamboman/nvim-lsp-installer"
 
 	-- Telescope
-	use "nvim-telescope/telescope.nvim"
-	use 'nvim-telescope/telescope-media-files.nvim'
+	 	use "nvim-telescope/telescope.nvim"
+		use 'nvim-telescope/telescope-media-files.nvim'
+		use 'nvim-telescope/telescope-file-browser.nvim'
 
 	  -- Treesitter
 --	use {

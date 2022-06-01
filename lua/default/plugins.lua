@@ -50,6 +50,7 @@ return packer.startup(function(use)
 	--
 	-- Workflow
 	use "tpope/vim-surround"
+	use "folke/trouble.nvim"
 
 	-- cmp plugins
 	use "hrsh7th/nvim-cmp"
@@ -70,11 +71,11 @@ return packer.startup(function(use)
 	use "williamboman/nvim-lsp-installer"
 
 	-- Telescope
-	 	use "nvim-telescope/telescope.nvim"
-		use 'nvim-telescope/telescope-media-files.nvim'
-		use 'nvim-telescope/telescope-file-browser.nvim'
+	use "nvim-telescope/telescope.nvim"
+	use 'nvim-telescope/telescope-media-files.nvim'
+	-- use 'nvim-telescope/telescope-file-browser.nvim'
 
-	  -- Treesitter
+  -- Treesitter
 --	use {
 --		"nvim-treesitter/nvim-treesitter",
 --		run = ":TSUpdate",

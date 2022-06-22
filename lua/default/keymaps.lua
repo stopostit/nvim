@@ -52,21 +52,9 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
  keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
  --
  -- Trouble
-keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
-  {silent = true, noremap = true}
-)
-keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>",
-  {silent = true, noremap = true}
-)
-keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",
-  {silent = true, noremap = true}
-)
-keymap("n", "gR", "<cmd>Trouble lsp_references<cr>",
-  {silent = true, noremap = true}
-)
+keymap("n", "<leader>xx", "<cmd>Trouble<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", {silent = true, noremap = true})
+keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})

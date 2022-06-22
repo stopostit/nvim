@@ -51,6 +51,7 @@ return packer.startup(function(use)
 	-- Workflow
 	use "tpope/vim-surround"
 	use "folke/trouble.nvim"
+	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
 	-- cmp plugins
 	use "hrsh7th/nvim-cmp"
@@ -83,6 +84,9 @@ return packer.startup(function(use)
 	-- Dev
 	use "fatih/vim-go"
 	--
+	-- Ops
+	use "jvirtanen/vim-hcl"
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

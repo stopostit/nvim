@@ -52,6 +52,14 @@ return packer.startup(function(use)
 	use "tpope/vim-surround"
 	use "folke/trouble.nvim"
 	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+	use {
+		'pwntester/octo.nvim',
+		requires = {
+			'nvim-lua/plenary.nvim',
+			'nvim-telescope/telescope.nvim',
+			'kyazdani42/nvim-web-devicons',
+		}
+	}
 
 	-- cmp plugins
 	use "hrsh7th/nvim-cmp"
@@ -73,14 +81,14 @@ return packer.startup(function(use)
 
 	-- Telescope
 	use "nvim-telescope/telescope.nvim"
-	use 'nvim-telescope/telescope-media-files.nvim'
+	use "cljoly/telescope-repo.nvim"
 	-- use 'nvim-telescope/telescope-file-browser.nvim'
 
-  -- Treesitter
---	use {
---		"nvim-treesitter/nvim-treesitter",
---		run = ":TSUpdate",
---	}
+	-- Treesitter
+	--	use {
+	--		"nvim-treesitter/nvim-treesitter",
+	--		run = ":TSUpdate",
+	--	}
 	-- Dev
 	use "fatih/vim-go"
 	--

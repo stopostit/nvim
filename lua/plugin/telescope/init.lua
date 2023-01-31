@@ -1,6 +1,6 @@
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
-	--TODO: notify
+	vim.notify("telescope module not found")
 	return
 end
 

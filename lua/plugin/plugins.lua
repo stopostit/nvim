@@ -91,7 +91,7 @@ return packer.startup(function(use)
 	use "fatih/vim-go"
 	--
 	-- Ops
-	use "jvirtanen/vim-hcl"
+	use "hashivim/vim-terraform"
 	--
 	-- Preview
 	use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}

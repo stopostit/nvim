@@ -49,7 +49,6 @@ return packer.startup(function(use)
 	--
 	-- Workflow
 	use "tpope/vim-surround"
-	use "folke/trouble.nvim"
 	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 	use {
 		'pwntester/octo.nvim',

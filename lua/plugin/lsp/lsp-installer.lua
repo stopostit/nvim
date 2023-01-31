@@ -8,12 +8,12 @@ end
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
 	local opts = {
-		on_attach = require("default.lsp.handlers").on_attach,
-		capabilities = require("default.lsp.handlers").capabilities,
+		on_attach = require("plugin.lsp.handlers").on_attach,
+		capabilities = require("plugin.lsp.handlers").capabilities,
 	}
 
 	if server.name == "sumneko_lua" then
-		local sumneko_opts = require("default.lsp.settings.sumneko_lua")
+		local sumneko_opts = require("plugin.lsp.settings.sumneko_lua")
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
 

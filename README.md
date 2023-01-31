@@ -4,7 +4,7 @@ This repository is my neovim setup taking advantage of LUA capabilities in order
 to cleanly structure the config files.
 
 ## Features
-* Plugin management heavy-lifting done by packer
+* Plugin management heavy-lifting done by packer, sync plugins on config change
 * Smart completion
 * LSP configuration
 * Telescope integration for fuzzy finding / grep / easy context switching

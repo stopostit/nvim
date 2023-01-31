@@ -83,10 +83,10 @@ return packer.startup(function(use)
 	-- use 'nvim-telescope/telescope-file-browser.nvim'
 
 	-- Treesitter
-	--	use {
-	--		"nvim-treesitter/nvim-treesitter",
-	--		run = ":TSUpdate",
-	--	}
+		use {
+			"nvim-treesitter/nvim-treesitter",
+			run = ":TSUpdate",
+		}
 	-- Dev
 	use "fatih/vim-go"
 	--

@@ -1,0 +1,8 @@
+require "plugin.plugins"
+require "plugin.telescope"
+require "plugin.colorscheme"
+require "plugin.lsp"
+require "plugin.completion"
+require "plugin.octo"
+require "plugin.treesitter"
+require "plugin.go"

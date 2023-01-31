@@ -92,6 +92,9 @@ return packer.startup(function(use)
 	--
 	-- Ops
 	use "jvirtanen/vim-hcl"
+	--
+	-- Preview
+	use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

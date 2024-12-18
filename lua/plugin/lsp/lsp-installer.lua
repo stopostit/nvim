@@ -16,6 +16,11 @@ lsp_installer.on_server_ready(function(server)
 		local sumneko_opts = require("plugin.lsp.settings.sumneko_lua")
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
+	if server.name == "ruby_ls" then
+		local cmd = { cmd = { "ruby_lsp" } }
+		local ruby_opts = require("plugin.lsp.settings.ruby_ls")
+		opts = vim.tbl_deep_extend("force", opts, ruby_opts, cmd)
+	end
 
 	-- This setup() function is exactly the same as lspconfig's setup function.
 	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md

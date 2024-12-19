@@ -54,8 +54,8 @@ cmp.setup {
 		end,
 	},
 	mapping = {
-		["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
+		["<S-Tab>"] = cmp.mapping.select_prev_item(),
+		["<Tab>"] = cmp.mapping.select_next_item(),
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -67,15 +67,10 @@ cmp.setup {
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
 		["<CR>"] = cmp.mapping.confirm { select = true },
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expandable() then
-				luasnip.expand()
-			elseif luasnip.expand_or_jumpable() then
+		-- Expand pr move in snippets
+		["<C-k>"] = cmp.mapping(function(fallback)
+			if  luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
-			elseif check_backspace() then
-				fallback()
 			else
 				fallback()
 			end
@@ -83,10 +78,8 @@ cmp.setup {
 		"i",
 		"s",
 	}),
-	["<S-Tab>"] = cmp.mapping(function(fallback)
-		if cmp.visible() then
-			cmp.select_prev_item()
-		elseif luasnip.jumpable(-1) then
+	["<C-j"] = cmp.mapping(function(fallback)
+		if  luasnip.jumpable(-1) then
 			luasnip.jump(-1)
 		else
 			fallback()
@@ -105,6 +98,7 @@ cmp.setup {
 		  vim_item.menu = ({
 			  nvim_lua = "[LSP_LUA]",
 			  nvim_lsp = "[LSP]",
+			  copilot = "[Copilot]",
 			  luasnip = "[Snippet]",
 			  buffer = "[Buffer]",
 			  path = "[Path]",
@@ -116,6 +110,7 @@ cmp.setup {
   sources = {
 	  { name = "nvim_lua" },
 	  { name = "nvim_lsp" },
+	  { name = "copilot" },
 	  { name = "luasnip" },
 	  { name = "buffer" },
 	  { name = "path" },
@@ -126,7 +121,7 @@ cmp.setup {
 	  select = false,
   },
   experimental = {
-	  ghost_text = false,
+	  ghost_text = true,
 	  native_menu = false,
   },
   window = {

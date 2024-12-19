@@ -1,4 +1,5 @@
 return {
+	cmd = { "ruby-lsp", 'stdio' },
 	settings = {
 		rubyLsp = {
 			enableRails = true,

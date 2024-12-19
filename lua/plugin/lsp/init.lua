@@ -4,5 +4,5 @@ if not status_ok then
 	return
 end
 
-require("plugin.lsp.lsp-installer")
+require("plugin.lsp.mason")
 require("plugin.lsp.handlers").setup()

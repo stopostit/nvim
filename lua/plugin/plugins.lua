@@ -46,7 +46,7 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use "NLKNguyen/papercolor-theme"
-	--
+
 	-- Workflow
 	use "tpope/vim-surround"
 	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -59,7 +59,7 @@ return packer.startup(function(use)
 		}
 	}
 
-	-- cmp plugins
+	-- cmp plugips
 	use "hrsh7th/nvim-cmp"
 	use "hrsh7th/cmp-buffer"
 	use "hrsh7th/cmp-path"
@@ -75,7 +75,9 @@ return packer.startup(function(use)
 
 	-- lsp
 	use "neovim/nvim-lspconfig"
-	use "williamboman/nvim-lsp-installer"
+	--	use "williamboman/nvim-lsp-installer"
+	use "williamboman/mason.nvim"
+	use "williamboman/mason-lspconfig.nvim"
 
 	-- Telescope
 	use "nvim-telescope/telescope.nvim"
@@ -83,10 +85,10 @@ return packer.startup(function(use)
 	-- use 'nvim-telescope/telescope-file-browser.nvim'
 
 	-- Treesitter
-		use {
-			"nvim-treesitter/nvim-treesitter",
-			run = ":TSUpdate",
-		}
+	use {
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	}
 	-- Dev
 	use "fatih/vim-go"
 	--
@@ -96,6 +98,37 @@ return packer.startup(function(use)
 	-- Preview
 	use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}
 
+	-- Copilot
+	-- use { "github/copilot.vim",
+	-- 	config = function ()
+	-- 		-- disable default tab behaviour to prevent cmp conflicts
+	-- 		vim.g.copilot_no_tab_map = true
+	-- 		vim.g.copilot_assume_mapped = true
+	-- 		vim.api.nvim_set_keymap("i", "<C-l>", 'copilot#Accept()', {silent = true, expr = true})
+	-- 	end
+	-- }
+	use {
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function ()
+			require("copilot").setup({
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			}
+			)
+		end
+	}
+
+	use {
+		"zbirenbaum/copilot-cmp",
+		after = { "copilot.lua" },
+		config = function ()
+			require("copilot_cmp").setup()
+		end
+	}
+
+	--
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

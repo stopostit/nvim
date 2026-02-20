@@ -4,8 +4,6 @@ if not status_ok then
 	return
 end
 
-telescope.load_extension('repo')
-
 local actions = require "telescope.actions"
 
 telescope.setup {
@@ -107,4 +105,13 @@ telescope.setup {
 		-- }
 		-- please take a look at the readme of the extension you want to configure
 	},
-}
+	}
+
+vim.api.nvim_create_user_command("TelescopeRepo", function()
+	local ok, _ = pcall(telescope.load_extension, "repo")
+	if not ok then
+		vim.notify("telescope-repo extension not available", vim.log.levels.WARN)
+		return
+	end
+	telescope.extensions.repo.list()
+end, { desc = "List repositories with telescope-repo" })

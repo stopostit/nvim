@@ -50,11 +50,15 @@ return packer.startup(function(use)
 	-- Workflow
 	use "tpope/vim-surround"
 	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-	use {
-		'pwntester/octo.nvim',
-		requires = {
-			'nvim-lua/plenary.nvim',
-			'nvim-telescope/telescope.nvim',
+		use {
+			'pwntester/octo.nvim',
+			cmd = { "Octo", "OctoIssue", "OctoRepo", "OctoPr", "OctoCard" },
+			config = function()
+				require("plugin.octo")
+			end,
+			requires = {
+				'nvim-lua/plenary.nvim',
+				'nvim-telescope/telescope.nvim',
 			'kyazdani42/nvim-web-devicons',
 		}
 	}

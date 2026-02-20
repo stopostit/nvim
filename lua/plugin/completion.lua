@@ -107,15 +107,14 @@ cmp.setup {
 		  return vim_item
 	  end,
   },
-  sources = {
-	  { name = "nvim_lua" },
-	  { name = "nvim_lsp" },
-	  { name = "copilot" },
-	  { name = "luasnip" },
-	  { name = "buffer" },
-	  { name = "path" },
-	  { name = "cmp_git" },
-  },
+	  sources = {
+		  { name = "nvim_lua" },
+		  { name = "nvim_lsp" },
+		  { name = "copilot" },
+		  { name = "luasnip" },
+		  { name = "buffer" },
+		  { name = "path" },
+	  },
   confirm_opts = {
 	  behavior = cmp.ConfirmBehavior.Replace,
 	  select = false,
@@ -127,5 +126,23 @@ cmp.setup {
   window = {
     documentation = cmp.config.window.bordered(),
   },
-}
-require("cmp_git").setup()
+	}
+
+cmp.setup.filetype("gitcommit", {
+	sources = cmp.config.sources({
+		{ name = "cmp_git" },
+	}, {
+		{ name = "buffer" },
+	}),
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "gitcommit",
+	once = true,
+	callback = function()
+		local ok, cmp_git = pcall(require, "cmp_git")
+		if ok then
+			cmp_git.setup()
+		end
+	end,
+})

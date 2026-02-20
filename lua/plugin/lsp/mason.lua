@@ -3,9 +3,8 @@ if not status_ok then
 	vim.notify("missing module mason")
 	return
 end
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-	vim.notify("missing module lspconfig")
+if not vim.lsp or not vim.lsp.config or not vim.lsp.enable then
+	vim.notify("Neovim LSP API (vim.lsp.config/enable) is unavailable")
 	return
 end
 
@@ -48,5 +47,6 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", conf_opts, opts)
 	end
 
-	lspconfig[server].setup(opts)
+		vim.lsp.config(server, opts)
+		vim.lsp.enable(server)
 end

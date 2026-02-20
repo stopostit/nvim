@@ -1,6 +1,5 @@
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-	vim.notify("missing module lspconfig")
+if not vim.lsp or not vim.lsp.config or not vim.lsp.enable then
+	vim.notify("Neovim LSP API (vim.lsp.config/enable) is unavailable")
 	return
 end
 

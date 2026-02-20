@@ -108,7 +108,7 @@ return packer.startup(function(use)
 	-- 		-- disable default tab behaviour to prevent cmp conflicts
 	-- 		vim.g.copilot_no_tab_map = true
 	-- 		vim.g.copilot_assume_mapped = true
-	-- 		vim.api.nvim_set_keymap("i", "<C-l>", 'copilot#Accept()', {silent = true, expr = true})
+		-- 		vim.keymap.set("i", "<C-l>", 'copilot#Accept()', { silent = true, expr = true })
 	-- 	end
 	-- }
 	use {

@@ -5,8 +5,7 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = "all", -- one of "all" or a list of languages
-	ignore_install = { "" }, -- List of parsers to ignore installing
+	ensure_installed = { "bash", "go", "hcl", "json", "lua", "markdown", "markdown_inline", "ruby", "terraform", "vim", "vimdoc", "yaml" },
 	highlight = {
 		enable = false, -- false will disable the whole extension
 		disable = { "css" }, -- list of language that will be disabled

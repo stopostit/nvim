@@ -11,7 +11,6 @@ end
 
 local servers = {
 	"lua_ls",
-	"ruby_lsp",
 }
 
 local settings = {

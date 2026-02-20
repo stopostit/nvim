@@ -111,18 +111,13 @@ return packer.startup(function(use)
 		-- 		vim.keymap.set("i", "<C-l>", 'copilot#Accept()', { silent = true, expr = true })
 	-- 	end
 	-- }
-	use {
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		config = function ()
-			require("copilot").setup({
-				suggestion = { enabled = false },
-				panel = { enabled = false },
-			}
-			)
-		end
-	}
+		use {
+			"zbirenbaum/copilot.lua",
+			cmd = { "Copilot", "CopilotToggle" },
+			config = function ()
+				require("plugin.copilot").setup()
+			end
+		}
 
 	use {
 		"zbirenbaum/copilot-cmp",

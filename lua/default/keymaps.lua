@@ -50,3 +50,6 @@ vim.keymap.set("n", "<C-p>", function()
 	require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({ previewer = false }))
 end, opts)
 vim.keymap.set("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
+
+-- Copilot
+vim.keymap.set("n", "<leader>cp", "<cmd>CopilotToggle<cr>", opts)
